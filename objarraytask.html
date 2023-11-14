@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, td, tr, th{
+        border: 5px solid black;
+        border-collapse: collapse;
+    }
+    #flexer{
+        display: flex;
+        justify-content: space-around;
+    }
+    th{
+        padding : 10px 100px;
+    }
+
+</style>
+<body>
+<table >
+    <tr>
+     <th> <button onclick="showAllName()">NAMES LIST</button></th>
+     <th> <button onclick="showAllPaid()">PAID</button></th>
+     <th> <button onclick="showAllNotPaid()">Not PAID</button></th>
+    </tr>
+    <tr>
+        <td><ol id="lister1"></ol></td>
+        <td><ol id="lister2"></ol></td>
+        <td><ol id="lister3"></ol></td>
+        
+    </tr>
+</table>
+
+
+    
+    
+
+
+    <script>
+       
+
+ let users = [
+
+ {name: "Daniel",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: true
+},
+
+
+
+{name: "Daniella",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: false
+},
+
+
+{name: "Samuel",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: true
+},
+
+
+{name: "Micheal",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: true
+},
+
+
+{name: "Daniel",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: false
+},
+
+{name: "Victor",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: true
+},
+
+{name: "James",
+    password: "123456",
+    gender: "Male",
+    email: "@gmail.com",
+    paid: false
+},
+
+ ]
+ 
+
+ let {name, password, gender, email, paid} = users
+
+
+ function showAllName( ) {
+users.forEach((item)=>{
+ lister1.innerHTML += "<li> " + item.name +   "</li>"
+ 
+})
+return;
+ }
+
+ function showAllPaid( ) {
+    users.forEach((item) => {
+        if (item.paid) {
+            lister2.innerHTML +="<li>" +item.name+ "</li>"
+            
+       
+    }
+  }) 
+ return;
+ }
+
+ function showAllNotPaid( ) {
+    users.forEach((item) => {
+        if (!item.paid) {
+            lister3.innerHTML +="<li>" + item.name+  "</li>"
+      
+    }
+        });
+   
+return;
+ }
+ 
+ 
+
+
+ 
+ 
+
+   </script>
+</body>
+</html>
