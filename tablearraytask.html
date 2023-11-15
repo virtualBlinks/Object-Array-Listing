@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, tr, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    table{
+        width: 100%;
+    }
+    button{
+        background-color: grey;
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: rgb(129, 121, 121);
+    }
+    #butt{
+        background-color: black;
+        width: 150px;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        transition: 2s;
+    }
+    #butt:hover{
+       background-color: white;
+       color: black;
+    }
+    #buttoncover{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin:50px 0px 30px 0px;
+    }
+   
+</style>
+<body>
+  <div id="buttoncover">
+    <button id="butt" onclick="dispUser()">All User</button>
+    <button id="butt"  onclick="paidUser()">Paid User</button>
+    <button id="butt"  onclick="notPaidUser()">Debtors</button>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="dispContent">
+            
+        </tbody>
+    </table>
+</body>
+<script>
+
+
+
+
+    let users = [
+     {
+    name : "Adekoya Olasubomi",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: true
+     },
+     {
+    name : "Adebayo Aleem",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: false
+    },
+    {
+    name : "Otunsanya Sunmi",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: true
+    } ,
+    {
+    name : "Alase waris",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: false
+    },
+    {
+    name : "Adebayo Ifeoluwa",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: false
+    },
+    {
+    name : "Adebayo Adeniyi",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: true
+    },
+    {
+    name : "Adebayo Olasubomi",
+    password : "123456",
+    gender: "Female",
+    email: "olasubomiceliat@gmailcom",
+    paid: true
+    },
+    
+  ]
+
+  function dispUser(){
+        dispContent.innerHTML = ""
+        for (let index = 0; index < users.length; index++) {
+            const dan = users[index];
+            dispContent.innerHTML += `
+                <tr>
+                    <td>${dan.name}</td>    
+                    <td>${dan.password}</td>    
+                    <td>${dan.gender}</td>    
+                    <td>${dan.email}</td>    
+                    <td>${dan.paid}</td> 
+                       
+                </tr>
+            `
+        }
+    }
+
+          // paid = users.filter((f)=> f.paid == true);
+  function paidUser() {
+        dispContent.innerHTML = ""
+      paid = users.filter((f)=> f.paid == true);
+        for (let index = 0; index < paid.length; index++) {
+            const element = paid[index];
+            dispContent.innerHTML += `
+          <tr>
+            <td>${element.name}</td>
+            <td>${element.password}</td>
+            <td>${element.gender}</td>
+            <td>${element.email}</td>
+            <td>${element.paid}</td>           
+            </tr>
+         `
+        }
+    }
+
+    function notPaidUser() {
+        dispContent.innerHTML = ""
+        notPaid = users.filter((f)=> f.paid == false)
+        for (let index = 0; index < notPaid.length; index++) {
+            const element = notPaid[index];
+            dispContent.innerHTML += `
+          <tr>
+            <td>${element.name}</td>
+            <td>${element.password}</td>
+            <td>${element.gender}</td>
+            <td>${element.email}</td>
+            <td>${element.paid}</td>           
+            </tr>
+         `
+        }
+    }
+    
+
+
+
+//     function paidUser(){
+//         dispContent.innerHTML = ""
+//         for (let index = 0; index < users.length; index++) {
+//             const element = users[index];
+//             if(element.paid == true){
+//                 dispContent.innerHTML += `
+//                 <tr>
+//                     <td>${element.name}</td>    
+//                     <td>${element.password}</td>    
+//                     <td>${element.gender}</td>    
+//                     <td>${element.email}</td>    
+//                     <td>${element.paid}</td>    
+//                 </tr>
+//             `
+//             }
+            
+//         }
+      
+//     }
+// //notPaidUser
+// function notPaidUser(){
+//         dispContent.innerHTML = ""
+//         for (let index = 0; index < users.length; index++) {
+//             const element = users[index];
+//             if(element.paid == false){
+//                 dispContent.innerHTML += `
+//                 <tr>
+//                     <td>${element.name}</td>    
+//                     <td>${element.password}</td>    
+//                     <td>${element.gender}</td>    
+//                     <td>${element.email}</td>    
+//                     <td>${element.paid}</td>    
+//                 </tr>
+//             `
+//             }
+            
+//         }
+//         }
+
+      
+
+
+   
+</script>
+</html>
